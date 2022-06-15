@@ -1,0 +1,76 @@
+<?php require_once('config.php'); ?>
+<link rel="stylesheet" type="text/css" href="head.css">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="index.php">Főoldal</a>
+          <a class="nav-link" href="coffee.php">Termékeink</a>
+          <?php 
+              if(!LoggedIn())
+                  {       ?>
+                    <a class="nav-link" href="registration.php">Regisztráció</a>
+                        <?php 
+                  } ?>
+              <!--Ha bevan lépve-->              
+                  <?php 
+              if(LoggedIn())
+                  {       ?>
+                          <a class="nav-link" href="welcome.php">Profilom</a></h4>
+                        <?php 
+                  } ?>
+                  <?php 
+              if(LoggedIn())
+                  {       ?>
+                          <a class="nav-link" href="purchases.php">Vásárlásaim</a></h4>
+                        <?php 
+                  } ?>
+                  <?php 
+                  if(!LoggedIn())
+                      {       ?>
+                        <a class="nav-link" href="login.php">Belépés</a>
+                            <?php 
+                      } ?>
+                  <!--Ergonómikusabb kilépés-->
+                <?php 
+                if(LoggedIn())
+                    {       ?>
+                            <a class="nav-link" href="logout.php">Kilépés</a></h4>
+                          <?php 
+                    } ?>
+                    <?php 
+              if(LoggedIn() && (($_SESSION["Vid"])=="$AdminID"))  
+                  {       ?>
+                          <a class="nav-link" href="admin.php">Szerkesztés</a></h4>
+                        <?php 
+                  } ?>
+                  <?php 
+          if(LoggedIn())
+              {       ?>
+                  <select name="colors" onchange="changeColor(this)" id="bgcolor" class="form-select" aria-label=".form-select-lg example">
+                    <option selected>Háttérszínválasztó</option>
+                    <option value="White">Fehér</option>
+                    <option value="black">Fekete</option>
+                    <option value="orange">Narancssárga</option>
+                    <option value="green">Zöld</option>
+                  </select>
+                    <?php 
+              } ?>                                     
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <script type="text/javascript"> // háttérszínválasztóhoz
+    var bgColor = document.getElementById('bgcolor');
+    bgColor.onchange = function() 
+    {
+        document.body.style.backgroundColor = this.value;
+        localStorage.setItem('bgColor', this.value);
+    }
+    bgColor.value = localStorage.getItem('bgColor');
+    bgColor.onchange(); 
+</script>
+
+
+
