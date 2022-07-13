@@ -5,6 +5,7 @@
 A feladat célja, egy webshop elkészítése. A webshopon belül kétféle fiók hozható létre. 
 - Készíthető felhasználói fiók, amely lehetővé tesz egy regisztrációt (illetve belépést, ha már regisztrált), ebben az esetben lehetőség nyílik a meglévő kínálatból vásárolni. A fiók szerkesztésére is van lehetőség, ahol email-cím/jelszó változtatás illetve maga a fiók törlése is elérhető.
 - Ezen felül egy ú.n admin fiók is készíthető (ebben az esetben nem regisztráció szükséges, hanem az SQL-ban lévő fájl admin felhasználó beszúrása). Az admin képes a kínálat szerkesztésére
+- PHP,HTML,CSS,JS technológiákkal
 ### A főoldalról elérhető oldalak és az azokon elérhető funkciók listája.
 #### Nem regisztrált felhasználóknak
 * `index.php` : Ez a főoldal, ahonnan nyílik két link a regisztrációs illetve a belépő felületre
